@@ -29,8 +29,21 @@ def sorts_page(cookie=COOKIE) -> tuple[list[str], typing.Callable[[str, int], di
         ).json()['games']
 
         return {
-            str(g['placeId']): g
-            for g in r
+            str(p['placeId']): {
+                'name': p['name'],
+                'placeId': p['placeId'],
+                'creatorHasVerifiedBadge': p['creatorHasVerifiedBadge'],
+                'creatorId': p['creatorId'],
+                'creatorName': p['creatorName'],
+                'description': p['gameDescription'],
+                'isSponsored': p['isSponsored'],
+                'nativeAdData': p['nativeAdData'],
+                'playerCount': p['playerCount'],
+                'totalDownVotes': p['totalDownVotes'],
+                'totalUpVotes': p['totalUpVotes'],
+                'universeId': p['universeId'],
+            }
+            for p in r
         }
     return sorts, func
 
@@ -50,7 +63,7 @@ def query_page(query: str, cookie=COOKIE) -> tuple[list[str], typing.Callable[[s
         token = base64.b64encode(json.dumps({
             'start': row_i,
             'count': 40,
-            'endOfPage': False
+            'endOfPage': False,
         }).encode('ascii')).decode('ascii')
 
         # token = base64.urlsafe_b64encode(
@@ -69,7 +82,20 @@ def query_page(query: str, cookie=COOKIE) -> tuple[list[str], typing.Callable[[s
         ).json()
 
         return {
-            str(p['rootPlaceId']): p
+            str(p['rootPlaceId']): {
+                'name': p['name'],
+                'placeId': p['rootPlaceId'],
+                'creatorHasVerifiedBadge': p['creatorHasVerifiedBadge'],
+                'creatorId': p['creatorId'],
+                'creatorName': p['creatorName'],
+                'description': p['description'],
+                'isSponsored': p['isSponsored'],
+                'nativeAdData': p['nativeAdData'],
+                'playerCount': p['playerCount'],
+                'totalDownVotes': p['totalDownVotes'],
+                'totalUpVotes': p['totalUpVotes'],
+                'universeId': p['universeId'],
+            }
             for g in j['searchResults']
             for p in g['contents']
         }
@@ -101,8 +127,11 @@ if __name__ == '__main__':
     parser.add_argument('--filename', '-f', type=str, default='places.json', nargs='?')
     args = parser.parse_args()
 
-    with open(args.filename, 'r') as f:
-        original = json.load(f)
+    try:
+        with open(args.filename, 'r') as f:
+            original = json.load(f)
+    except FileNotFoundError:
+        original = {}
 
     if args.query:
         original.update(list_from_calls(*query_page(args.query, args.cookie), 40))
