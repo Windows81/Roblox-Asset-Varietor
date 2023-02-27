@@ -74,12 +74,14 @@ def query_page(query: str, cookie=COOKIE) -> tuple[list[str], typing.Callable[[s
             'pageToken': token,
             'sessionId': sess,
             'searchQuery': query,
+            'pageType': 'all',
         }, doseq=False)
 
-        j = requests.get(
+        r = requests.get(
             f'https://apis.roblox.com/search-api/omni-search?{qs}',
             cookies={'.ROBLOSECURITY': cookie},
-        ).json()
+        )
+        j = r.json()
 
         return {
             str(p['rootPlaceId']): {
