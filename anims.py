@@ -19,6 +19,7 @@ def list_emotes() -> list[int]:
         "https://catalog.roblox.com/v1/search/items"
         + "?category=AvatarAnimations"
         + "&subcategory=EmoteAnimations"
+        + "&includeNotForSale=true"
         + "&limit=120&cursor="
     )
     return traverse(base)
@@ -27,7 +28,10 @@ def list_emotes() -> list[int]:
 def list_bundles() -> list[int]:
     base = (
         "https://catalog.roblox.com/v1/search/items"
-        + "?subcategory=AnimationBundles"
+        + "?category=AvatarAnimations"
+        + "&subcategory=AnimationBundles"
+        + "&salesTypeFilter=1"
+        + "&includeNotForSale=true"
         + "&limit=120&cursor="
     )
     return traverse(base)
@@ -73,7 +77,7 @@ def get_anim(iden) -> tuple[str, int]:
 
     anim_name = None
     anim_id = None
-    ctrl = ''.join(list(chr(v) for v in range(32)))
+    ctrl = bytes(range(32))
     for e in ends_name:
         try:
             anim_name = get_tag(content, start_name, e).strip(ctrl).decode()
@@ -89,22 +93,23 @@ def get_anim(iden) -> tuple[str, int]:
     return (anim_name, anim_id)
 
 
-def get_bundles(iden):
+def get_bundle(iden):
+    print(f'Grabbing bundle {iden:4d}...')
     t = requests.get(f"https://web.roblox.com/bundles/{iden}").text
     names = get_tags(t, 'data-name="', '"\r\n')
     ids = get_tags(t, 'data-asset-id="', '"')
-    return {n: get_anim(i)[1] for i, n in zip(ids, names)}
+    return {n: get_anim(int(i))[1] for i, n in zip(ids, names)}
 
 
 if __name__ == "__main__":
+    bundles = {
+        f"bundles/{iden}": get_bundle(iden)
+        for iden in list_bundles()
+    }
     emotes = {
         f"catalog/{iden}": dict([get_anim(iden)])
         for iden in list_emotes()
     }
-    bundles = {
-        f"bundles/{iden}": get_bundles(iden)
-        for iden in list_bundles()
-    }
     with open("anims.json", "w") as f:
-        json.dump(bundles | emotes, f, indent="\t")
+        json.dump(bundles | emotes, f, indent="\t", sort_keys=True)
     # print(json.dumps(emotes))
