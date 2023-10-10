@@ -7,6 +7,8 @@ def traverse(base) -> list[int]:
     result = []
     while cursor != None:
         json = requests.get(f"{base}{cursor}").json()
+        if "errors" in json:
+            break
         result += [item["id"] for item in json["data"]]
         cursor = json["nextPageCursor"]
     return result
@@ -52,9 +54,11 @@ def get_tags(content: bytes, prefix: bytes, suffix: bytes, offset=0) -> list[byt
 
 
 def get_anim(iden) -> tuple[str, int]:
+    print(f'Grabbing animation {iden:12d}...')
     content = requests.get(
         f"https://assetdelivery.roblox.com/v1/asset/?id={iden}"
     ).content
+
     is_bin = chr(content[7]) == "!"
     if is_bin:
         start_name = b"Name\x01"
@@ -69,7 +73,7 @@ def get_anim(iden) -> tuple[str, int]:
 
     anim_name = None
     anim_id = None
-    ctrl = b'\0\x0c\b\x11\t\r\n\\"'
+    ctrl = ''.join(list(chr(v) for v in range(32)))
     for e in ends_name:
         try:
             anim_name = get_tag(content, start_name, e).strip(ctrl).decode()
