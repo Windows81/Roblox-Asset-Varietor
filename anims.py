@@ -1,3 +1,4 @@
+import typing_extensions
 import requests
 import json
 
@@ -37,13 +38,16 @@ def list_bundles() -> list[int]:
     return traverse(base)
 
 
-def get_tag(content: bytes, prefix: bytes, suffix: bytes, offset=0) -> bytes:
+T = typing_extensions.TypeVar('T', str, bytes)
+
+
+def get_tag(content: T, prefix: T, suffix: T, offset=0) -> T:
     begin = content.index(prefix) + len(prefix) + offset
     end = content.index(suffix, begin)
     return content[begin:end]
 
 
-def get_tags(content: bytes, prefix: bytes, suffix: bytes, offset=0) -> list[bytes]:
+def get_tags(content: T, prefix: T, suffix: T, offset=0) -> list[T]:
     result = []
     i_off = 0
     try:
@@ -57,8 +61,8 @@ def get_tags(content: bytes, prefix: bytes, suffix: bytes, offset=0) -> list[byt
         return result
 
 
-def get_anim(iden) -> tuple[str, int]:
-    print(f'Grabbing animation {iden:17d}...')
+def get_anim(iden) -> tuple[str | None, int | None]:
+    print(f'Grabbing animation: {iden:17d}...')
     content = requests.get(
         f"https://assetdelivery.roblox.com/v1/asset/?id={iden}"
     ).content
@@ -93,23 +97,30 @@ def get_anim(iden) -> tuple[str, int]:
     return (anim_name, anim_id)
 
 
-def get_bundle(iden):
-    print(f'Grabbing bundle {iden:7d}...')
+def get_bundle(iden) -> dict[str, int | None]:
+    print(f'GRABBING BUNDLE: {iden:20d}...')
     t = requests.get(f"https://web.roblox.com/bundles/{iden}").text
-    names = get_tags(t, 'data-name="', '"\r\n')
+    names = get_tags(t, 'data-name="', '"')
     ids = get_tags(t, 'data-asset-id="', '"')
-    return {n: get_anim(int(i))[1] for i, n in zip(ids, names)}
+    return {
+        n: get_anim(int(i))[1]
+        for i, n in zip(ids, names)
+    }
 
 
 if __name__ == "__main__":
+    with open("anims.json", "r") as f:
+        existing = json.load(f)
     bundles = {
-        f"bundles/{iden}": get_bundle(iden)
+        f"bundles/{iden}": bundle
         for iden in list_bundles()
+        if len(bundle := get_bundle(iden))
     }
     emotes = {
-        f"catalog/{iden}": dict([get_anim(iden)])
+        f"catalog/{iden}": items
         for iden in list_emotes()
+        if len(items := dict([get_anim(iden)]))
     }
     with open("anims.json", "w") as f:
-        json.dump(bundles | emotes, f, indent="\t", sort_keys=True)
+        json.dump(bundles | emotes | existing, f, indent="\t", sort_keys=True)
     # print(json.dumps(emotes))

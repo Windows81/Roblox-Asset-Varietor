@@ -15,6 +15,15 @@
 			],
 			"console": "integratedTerminal",
 			"justMyCode": true
+		},
+		{
+			"name": "Python: Anims",
+			"type": "python",
+			"request": "launch",
+			"program": "${workspaceFolder}/anims.py",
+			"args": [],
+			"console": "integratedTerminal",
+			"justMyCode": true
 		}
 	]
 }

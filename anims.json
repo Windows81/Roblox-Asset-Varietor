@@ -1,26 +1,202 @@
 {
-	"bundles/32": {},
-	"bundles/33": {},
-	"bundles/331465": {},
-	"bundles/331856": {},
-	"bundles/34": {},
-	"bundles/356": {},
-	"bundles/39": {},
-	"bundles/427999": {},
-	"bundles/43": {},
-	"bundles/455003": {},
-	"bundles/48": {},
-	"bundles/55": {},
-	"bundles/56": {},
-	"bundles/63": {},
-	"bundles/667": {},
-	"bundles/68": {},
-	"bundles/75": {},
-	"bundles/79": {},
-	"bundles/80": {},
-	"bundles/81": {},
-	"bundles/82": {},
-	"bundles/83": {},
+	"bundles/32": {
+		"Werewolf Climb": 10921329322,
+		"Werewolf Fall": 10921337907,
+		"Werewolf Idle": 10921330408,
+		"Werewolf Jump": 1083218792,
+		"Werewolf Run": 10921336997,
+		"Werewolf Swim": 10921340419,
+		"Werewolf Walk": 10921342074
+	},
+	"bundles/33": {
+		"Vampire Climb": 10921314188,
+		"Vampire Fall": 10921321317,
+		"Vampire Idle": 10921315373,
+		"Vampire Jump": 10921322186,
+		"Vampire Run": 10921320299,
+		"Vampire Swim": 10921324408,
+		"Vampire Walk": 10921326949
+	},
+	"bundles/331465": {
+		"Bold Climb": 16738332169,
+		"Bold Fall": 16738333171,
+		"Bold Idle": 16738333868,
+		"Bold Jump": 16738336650,
+		"Bold Run": 16738337225,
+		"Bold Swim": 16738339158,
+		"Bold Walk": 16738340646
+	},
+	"bundles/331856": {
+		"Bold Climb": 16738332169,
+		"Bold Fall": 16738333171,
+		"Bold Idle": 16738333868,
+		"Bold Jump": 16738336650,
+		"Bold Run": 16738337225,
+		"Bold Swim": 16738339158,
+		"Bold Walk": 16738340646
+	},
+	"bundles/34": {
+		"Astronaut Climb": 10921032124,
+		"Astronaut Fall": 10921040576,
+		"Astronaut Idle": 10921034824,
+		"Astronaut Jump": 10921042494,
+		"Astronaut Run": 10921039308,
+		"Astronaut Swim": 10921044000,
+		"Astronaut Walk ": 10921046031
+	},
+	"bundles/356": {
+		"Rthro Climb": 10921257536,
+		"Rthro Fall": 10921262864,
+		"Rthro Idle": 10921258489,
+		"Rthro Jump": 10921263860,
+		"Rthro Run": 10921261968,
+		"Rthro Swim": 10921264784,
+		"Rthro Walk": 10921269718
+	},
+	"bundles/39": {
+		"Bubbly Climb": 10921053544,
+		"Bubbly Fall": 10921061530,
+		"Bubbly Idle": 10921054344,
+		"Bubbly Jump": 10921062673,
+		"Bubbly Run": 10921057244,
+		"Bubbly Swim": 10921063569,
+		"Bubbly Walk": 10980888364
+	},
+	"bundles/427999": {
+		"adidas Sports - Climb": 18537363391,
+		"adidas Sports - Fall": 18537367238,
+		"adidas Sports - Idle": 18537376492,
+		"adidas Sports - Jump": 18537380791,
+		"adidas Sports - Run": 18537384940,
+		"adidas Sports - Swim": 18537389531,
+		"adidas Sports - Walk": 18537392113
+	},
+	"bundles/43": {
+		"Toy Climb": 10921300839,
+		"Toy Fall": 10921307241,
+		"Toy Idle": 10921301576,
+		"Toy Jump": 10921308158,
+		"Toy Run": 10921306285,
+		"Toy Swim": 10921309319,
+		"Toy Walk ": 10921312010
+	},
+	"bundles/455003": {
+		"No Boundaries by Walmart - Climb": 18747060903,
+		"No Boundaries by Walmart - Fall": 18747062535,
+		"No Boundaries by Walmart - Idle": 18747067405,
+		"No Boundaries by Walmart - Jump": 18747069148,
+		"No Boundaries by Walmart - Run": 18747070484,
+		"No Boundaries by Walmart - Swim": 18747073181,
+		"No Boundaries by Walmart - Walk": 18747074203
+	},
+	"bundles/48": {
+		"Elder Climb": 10921100400,
+		"Elder Fall": 10921105765,
+		"Elder Idle": 10921101664,
+		"Elder Jump": 10921107367,
+		"Elder Run": 10921104374,
+		"Elder Swim": 10921108971,
+		"Elder Walk": 10921111375
+	},
+	"bundles/55": {
+		"Pirate Climb": 750779899,
+		"Pirate Fall": 750780242,
+		"Pirate Idle": 750781874,
+		"Pirate Jump": 750782230,
+		"Pirate Run": 750783738,
+		"Pirate Swim": 750784579,
+		"Pirate Walk": 750785693
+	},
+	"bundles/56": {
+		"Cartoony Climb": 10921070953,
+		"Cartoony Fall": 10921077030,
+		"Cartoony Idle": 10921071918,
+		"Cartoony Jump": 10921078135,
+		"Cartoony Run": 10921076136,
+		"Cartoony Swim": 10921079380,
+		"Cartoony Walk": 10921082452
+	},
+	"bundles/63": {
+		"Mage Climb": 10921143404,
+		"Mage Fall": 10921148939,
+		"Mage Idle": 10921144709,
+		"Mage Jump": 10921149743,
+		"Mage Run": 10921148209,
+		"Mage Swim": 10921150788,
+		"Mage Walk": 10921152678
+	},
+	"bundles/667": {
+		"Oldschool Climb": 10921229866,
+		"Oldschool Fall": 10921241244,
+		"Oldschool Idle": 10921230744,
+		"Oldschool Jump": 10921242013,
+		"Oldschool Run": 10921240218,
+		"Oldschool Swim": 10921243048,
+		"Oldschool Walk": 10921244891
+	},
+	"bundles/68": {
+		"Knight Climb": 10921116196,
+		"Knight Fall": 10921122579,
+		"Knight Idle": 10921117521,
+		"Knight Jump": 10921123517,
+		"Knight Run": 10921121197,
+		"Knight Swim": 10921125160,
+		"Knight Walk": 10921127095
+	},
+	"bundles/75": {
+		"Ninja Climb": 10921154678,
+		"Ninja Fall": 10921159222,
+		"Ninja Idle": 10921155160,
+		"Ninja Jump": 10921160088,
+		"Ninja Run": 10921157929,
+		"Ninja Swim": 10921161002,
+		"Ninja Walk": 10921162768
+	},
+	"bundles/79": {
+		"Levitation Climb": 10921132092,
+		"Levitation Fall": 10921136539,
+		"Levitation Idle": 10921132962,
+		"Levitation Jump": 10921137402,
+		"Levitation Run": 10921135644,
+		"Levitation Swim": 10921138209,
+		"Levitation Walk": 10921140719
+	},
+	"bundles/80": {
+		"Zombie Climb": 10921343576,
+		"Zombie Fall": 10921350320,
+		"Zombie Idle": 10921344533,
+		"Zombie Jump": 10921351278,
+		"Zombie Run": 616163682,
+		"Zombie Swim": 10921352344,
+		"Zombie Walk": 10921355261
+	},
+	"bundles/81": {
+		"Superhero Climb": 10921286911,
+		"Superhero Fall": 10921293373,
+		"Superhero Idle": 10921288909,
+		"Superhero Jump": 10921294559,
+		"Superhero Run": 10921291831,
+		"Superhero Swim": 10921295495,
+		"Superhero Walk": 10921298616
+	},
+	"bundles/82": {
+		"Robot Climb": 10921247141,
+		"Robot Fall": 10921251156,
+		"Robot Idle": 10921248039,
+		"Robot Jump": 10921252123,
+		"Robot Run": 10921250460,
+		"Robot Swim": 10921253142,
+		"Robot Walk": 10921255446
+	},
+	"bundles/83": {
+		"Stylish Climb": 10921271391,
+		"Stylish Fall": 10921278648,
+		"Stylish Idle": 10921272275,
+		"Stylish Jump": 10921279832,
+		"Stylish Run": 10921276116,
+		"Stylish Swim": 10921281000,
+		"Stylish Walk": 10921283326
+	},
 	"catalog/10147916560": {
 		"Burberry Gem Face": 10714008655
 	},
