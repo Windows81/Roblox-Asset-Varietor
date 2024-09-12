@@ -58,7 +58,7 @@ def get_tags(content: bytes, prefix: bytes, suffix: bytes, offset=0) -> list[byt
 
 
 def get_anim(iden) -> tuple[str, int]:
-    print(f'Grabbing animation {iden:12d}...')
+    print(f'Grabbing animation {iden:17d}...')
     content = requests.get(
         f"https://assetdelivery.roblox.com/v1/asset/?id={iden}"
     ).content
@@ -94,7 +94,7 @@ def get_anim(iden) -> tuple[str, int]:
 
 
 def get_bundle(iden):
-    print(f'Grabbing bundle {iden:4d}...')
+    print(f'Grabbing bundle {iden:7d}...')
     t = requests.get(f"https://web.roblox.com/bundles/{iden}").text
     names = get_tags(t, 'data-name="', '"\r\n')
     ids = get_tags(t, 'data-asset-id="', '"')

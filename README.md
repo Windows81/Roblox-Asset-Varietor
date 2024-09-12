@@ -1,6 +1,6 @@
 # Roblox-Asset-Varietor
 
-All of those require you have your .ROBLOSECURITY cookie either passed as a command-line argument or in a system environmental variable called `ROBLOSECURITY`.
+All of those may require you have your .ROBLOSECURITY cookie either passed as a command-line argument or in a system environmental variable called `ROBLOSECURITY`.
 
 ## `places.py`
 
