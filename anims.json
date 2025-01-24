@@ -8,6 +8,15 @@
 		"Popular - Swim": 99384245425157,
 		"Popular - Walk": 92072849924640
 	},
+	"bundles/1601900": {
+		"Catwalk Glam - Climb": 119377220967554,
+		"Catwalk Glam - Fall": 92294537340807,
+		"Catwalk Glam - Idle": null,
+		"Catwalk Glam - Jump": 116936326516985,
+		"Catwalk Glam - Run": 81024476153754,
+		"Catwalk Glam - Swim": null,
+		"Catwalk Glam - Walk": 109168724482748
+	},
 	"bundles/32": {
 		"Werewolf Climb": 10921329322,
 		"Werewolf Fall": 10921337907,
@@ -281,6 +290,9 @@
 	"catalog/11753545334": {
 		"Rock Out": 11753474067
 	},
+	"catalog/120642514156293": {
+		"Wicked": 71243990877913
+	},
 	"catalog/12259885838": {
 		"SM1": 12259825026
 	},
@@ -310,6 +322,9 @@
 	},
 	"catalog/13823339506": {
 		"bow": 13823324057
+	},
+	"catalog/139021427684680": {
+		"KATSEYE": 135876612109535
 	},
 	"catalog/14022978026": {
 		"ybv3": 14022936101
