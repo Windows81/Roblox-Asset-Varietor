@@ -1,6 +1,7 @@
 import typing_extensions
 import requests
 import json
+import html
 
 
 def traverse(base) -> list[int]:
@@ -41,14 +42,14 @@ def list_bundles() -> list[int]:
 T = typing_extensions.TypeVar('T', str, bytes)
 
 
-def get_tag(content: T, prefix: T, suffix: T, offset=0) -> T:
+def get_tag(content: T, prefix: T, suffix: T, offset: int = 0) -> T:
     begin = content.index(prefix) + len(prefix) + offset
     end = content.index(suffix, begin)
-    return content[begin:end]
+    return html.unescape(content[begin:end])
 
 
-def get_tags(content: T, prefix: T, suffix: T, offset=0) -> list[T]:
-    result = []
+def get_tags(content: T, prefix: T, suffix: T, offset: int = 0) -> list[T]:
+    result: list[T] = []
     i_off = 0
     try:
         while True:
@@ -61,7 +62,7 @@ def get_tags(content: T, prefix: T, suffix: T, offset=0) -> list[T]:
         return result
 
 
-def get_anim(iden) -> tuple[str | None, int | None]:
+def get_anim(iden: int) -> tuple[str | None, int | None]:
     print(f'Grabbing animation: {iden:17d}...')
     content = requests.get(
         f"https://assetdelivery.roblox.com/v1/asset/?id={iden}"
@@ -97,7 +98,7 @@ def get_anim(iden) -> tuple[str | None, int | None]:
     return (anim_name, anim_id)
 
 
-def get_bundle(iden) -> dict[str, int | None]:
+def get_bundle(iden: int) -> dict[str, int | None]:
     print(f'GRABBING BUNDLE: {iden:20d}...')
     t = requests.get(f"https://web.roblox.com/bundles/{iden}").text
     names = get_tags(t, 'data-name="', '"')
